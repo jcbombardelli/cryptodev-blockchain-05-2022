@@ -1,0 +1,22 @@
+{
+  "name": "dia-04",
+  "version": "1.0.0",
+  "description": "<center>   <img src=\"https://pa1.narvii.com/6437/e490081cae3ef1c0e1c77936346013e7d93e568e_hq.gif\"></img> </center>",
+  "scripts": {
+    "start": "node src/express.js",
+    "start:dev": "nodemon src/express/js ",
+    "test": "mocha ./tests/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "request": "^2.88.2"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
