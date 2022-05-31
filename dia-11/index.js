@@ -3,10 +3,13 @@ const Chain = require('./src/chain')
 
 
 //Simulação do uso do Menu
-//const chain = new Chain()
-//chain.addBlock({ amount: 33 }) //Posicao 1
-//chain.addBlock({ amount: 10 }) //Posicao index 2
-//chain.addBlock({ amount: 44, message: 'BTC > All' }) //Posicao Index 3
+const chain = new Chain()
+
+//Blocos Mockados
+chain.addBlock({ amount: 33 }) //Posicao 1
+chain.addBlock({ amount: 10 }) //Posicao index 2
+chain.addBlock({ amount: 44, message: 'BTC > All' }) //Posicao Index 3
+clear(true)
 
 //Hackerman
 //chain.instance[1].data.amount = 9001
@@ -27,13 +30,17 @@ function main() {
         const message = readline.question('Message: ')
 
         chain.addBlock({ amount, message }) //Cria um novo bloco e adiciona na cadeia
-
         console.log('Block added!')
         clear(true)
         break;
       case 2:
         console.log('Blocks List!')
         chain.print() //Lista cadeia de blocos a partir da instancia
+        clear(true)
+        break;
+      case 3: 
+        const audit = chain.isValid();
+        console.log(`Blockchain is ${audit ? 'Integral' : 'Violated'} !!!`)
         clear(true)
         break;
       case 0:
