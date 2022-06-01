@@ -2,10 +2,10 @@ const utils = require('./utils')
 
 class Block {
 
-  constructor({index, previousHash, data}) {
+  constructor({index, previousHash, data = []}) {
     this.index = index
     this.previousHash = previousHash
-    this.data = JSON.stringify(data)
+    this.data = data
     this.timestamp = new Date().getTime()
     this.nounce = 0
     this.hash = ''
@@ -15,7 +15,7 @@ class Block {
     return utils.hashGenerator(
         this.index, 
         this.previousHash, 
-        this.timestamp, 
+        this.timestamp,
         JSON.stringify(this.data),
         this.nounce
     )

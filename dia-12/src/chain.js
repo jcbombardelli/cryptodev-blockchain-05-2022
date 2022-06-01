@@ -6,7 +6,11 @@ class Chain {
 
 
   constructor() {
-    this.instance = [new Block({index: 0, previousHash: 0, data: 'Genesis Block'})]
+
+    const genesis = new Block({index: 0, previousHash: 0, data: 'Genesis Block'})
+    genesis.mine(1)
+
+    this.instance = [genesis]
     this.index = 1
   }
 
@@ -25,7 +29,7 @@ class Chain {
   }
 
   print() {
-    console.log(this.instance)
+    console.log(JSON.stringify(this.instance))
   }
 
   isValid() {
@@ -37,9 +41,9 @@ class Chain {
 
       const reGeneratedHash = utils.hashGenerator(
         currentBlock.index, 
-        currentBlock.previousBlock, 
+        currentBlock.previousHash, 
         currentBlock.timestamp,
-        currentBlock.data,
+        JSON.stringify(currentBlock.data),
         currentBlock.nounce
       )
 

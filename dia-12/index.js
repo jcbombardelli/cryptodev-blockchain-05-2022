@@ -17,9 +17,9 @@ function main() {
     clear()
     switch(op) {
       case 1:
-        chain.addBlock(txPool) //Cria um novo bloco e adiciona na cadeia
+        chain.addBlock(...txPool) //Cria um novo bloco e adiciona na cadeia
         console.log('Block added!')
-        txPool.clear()
+        txPool.splice(0, txPool.length)
         clear(true)
         break;
       case 2:
@@ -53,6 +53,9 @@ function main() {
       case 0:
         console.info("Bye!")
         break;
+      case 99: 
+        const txmock = new Transaction({sender: 'j', receiver: 'k', amount: 3, message: 'btc'})
+        txPool.push(txmock)
       default:
         console.error("Invalid option")
         clear()
